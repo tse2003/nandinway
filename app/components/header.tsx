@@ -1,14 +1,17 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Icon from "./ui-icon";
 import { links } from "../navigation";
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   return (
     <header className="header">
       <div className="header-inner">
-        <a href="#home" aria-label="Nandinway нүүр">
+        <Link href="/" aria-label="Nandinway нүүр">
           <Image
             src="/images/logo.webp"
             width={192}
@@ -16,12 +19,12 @@ export default function Header() {
             alt="NANDINWAY Air Ticketing Agency"
             priority
           />
-        </a>
+        </Link>
         <button
           className="menu-button"
           aria-expanded={open}
           aria-controls="navigation"
-          aria-label="Цэс нээх"
+          aria-label={open ? "Цэс хаах" : "Цэс нээх"}
           onClick={() => setOpen(!open)}
         >
           <Icon name="menu" />
@@ -32,9 +35,9 @@ export default function Header() {
           aria-label="Үндсэн цэс"
         >
           {links.map(([label, href]) => (
-            <a key={href} href={href} onClick={() => setOpen(false)}>
+            <Link key={href} href={href} onClick={() => setOpen(false)} aria-current={pathname === href ? "page" : undefined}>
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
         <a className="phone-pill" href="tel:70002929">

@@ -108,6 +108,10 @@ p {
   border-color: var(--blue);
   color: var(--blue);
 }
+.nav a[aria-current="page"] {
+  border-color: var(--blue);
+  color: var(--blue);
+}
 .phone-pill {
   display: flex;
   gap: 9px;
@@ -648,6 +652,34 @@ footer {
 .skip-link:focus {
   top: 10px;
 }
+.inner-page {
+  min-height: 65vh;
+}
+.inner-hero {
+  color: #fff;
+  padding: 56px 0 68px;
+  background: linear-gradient(115deg, #031c40ed, #0755a7cf), url("/images/hero.webp") center / cover;
+}
+.inner-hero .eyebrow { color: #8bcaff; margin: 26px 0 6px; }
+.inner-hero h1 { font-size: clamp(34px, 5vw, 58px); line-height: 1.15; }
+.inner-hero p { color: #e8f3ff; font-size: 17px; max-width: 740px; margin-top: 16px; }
+.breadcrumb { color: #d2e5fc; font-size: 13px; }
+.breadcrumb span { margin: 0 8px; }
+.breadcrumb:hover { text-decoration: underline; }
+.inner-content { padding: 40px 0 64px; }
+.inner-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.destination-inner-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.inner-card { background: white; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 10px 24px #063e7710; }
+.inner-card-image { position: relative; aspect-ratio: 16 / 10; }
+.inner-card-image img { object-fit: cover; }
+.inner-card-body { padding: 22px; }
+.inner-card h2 { font-size: 19px; letter-spacing: 0; }
+.inner-card p { margin-top: 12px; font-size: 14px; line-height: 1.65; }
+.inner-card .text-link { margin-top: 20px; }
+.inner-action { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px; margin-top: 32px; background: #e5f3ff; border-radius: 16px; }
+.inner-action h2 { font-size: 23px; }
+.inner-action p { margin-top: 7px; }
+.inner-action .primary-button { white-space: nowrap; }
 :focus-visible {
   outline: 3px solid #ffaf2f;
   outline-offset: 4px;
@@ -689,6 +721,7 @@ footer {
   }
 }
 @media (max-width: 900px) {
+  .inner-grid, .destination-inner-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .menu-button {
     display: flex;
     margin-left: auto;
@@ -776,6 +809,12 @@ footer {
   }
 }
 @media (max-width: 600px) {
+  .inner-hero { padding: 30px 0 46px; }
+  .inner-hero p { font-size: 14px; }
+  .inner-content { padding: 25px 0 40px; }
+  .inner-grid, .destination-inner-grid { grid-template-columns: 1fr; gap: 12px; }
+  .inner-action { display: block; padding: 22px; }
+  .inner-action .primary-button { margin-top: 18px; width: 100%; }
   body {
     font-size: 13px;
   }

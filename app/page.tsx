@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Header from "./components/header";
-import { links } from "./navigation";
 import BookingForm from "./components/booking-form";
 import Icon from "./components/ui-icon";
 const services = [
@@ -44,10 +42,6 @@ const destinations = [
 export default function Home() {
   return (
     <>
-      <a className="skip-link" href="#main">
-        Үндсэн агуулга руу
-      </a>
-      <Header />
       <main id="main">
         <section
           id="home"
@@ -75,8 +69,8 @@ export default function Home() {
               <h2>ҮЙЛЧИЛГЭЭ</h2>
               <p>Таны аялалд бид хамтдаа</p>
             </div>
-            <a className="text-link" href="#booking">
-              Захиалга өгөх <Icon name="arrow" />
+            <a className="text-link" href="/services">
+              Бүх үйлчилгээ <Icon name="arrow" />
             </a>
           </div>
           <div className="services-grid">
@@ -107,8 +101,8 @@ export default function Home() {
                 Бид үйлчлүүлэгч бүрт итгэлтэй, найдвартай, чанартай үйлчилгээг
                 хүргэхийг эрхэмлэдэг.
               </p>
-              <a className="outline-button" href="#contact">
-                Холбоо барих <Icon name="arrow" />
+              <a className="outline-button" href="/about">
+                Дэлгэрэнгүй <Icon name="arrow" />
               </a>
             </div>
             <div className="about-emblem">
@@ -145,7 +139,7 @@ export default function Home() {
               <h2>ТҮГЭЭМЭЛ ЧИГЛЭЛҮҮД</h2>
               <p>Дэлхийн хамгийн сайхан хотууд таныг хүлээж байна</p>
             </div>
-            <a href="#booking" className="text-link">
+            <a href="/destinations" className="text-link">
               Бүх чиглэл <Icon name="arrow" />
             </a>
           </div>
@@ -230,31 +224,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer>
-        <div className="container">
-          <div className="footer-top">
-            <a href="#home" className="footer-brand">
-              NANDINWAY<span>AIR TICKETING AGENCY</span>
-            </a>
-            <nav aria-label="Хөлийн цэс">
-              {links.map(([name, href]) => (
-                <a href={href} key={href}>
-                  {name}
-                </a>
-              ))}
-            </nav>
-          </div>
-          <div className="footer-bottom">
-            <p>
-              © {new Date().getFullYear()} Nandinway. Бүх эрх хуулиар
-              хамгаалагдсан.
-            </p>
-            <p>
-              Таны нандин дурсамж эндээс эхэлнэ <Icon name="plane" />
-            </p>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }
