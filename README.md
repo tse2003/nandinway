@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NANDINWAY front-end
 
-## Getting Started
+A Mongolian-language, responsive Next.js App Router website based on the supplied Nandinway reference design.
 
-First, run the development server:
+## Run locally
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run lint
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- Responsive navigation and accessible mobile menu.
+- Reference banner, service cards, company introduction, destinations, travel advice and contact sections.
+- Booking request form with service checkboxes, city selection, dates, passenger count and telephone validation.
+- Prepared request summary with a `mailto:` handoff. The form does **not** create bookings, send email automatically or store customer information. Users must send the message from their email application. A phone alternative is provided.
+- Mongolian metadata, keyboard focus styles and reduced-motion support.
 
-To learn more about Next.js, take a look at the following resources:
+## Content and assets
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The hero, logo and destination thumbnails in `public/images` are cropped from the user-provided reference. They are local assets, with no dependency on third-party image hosting. The hero's artwork includes baked-in text; its accessible description is supplied in HTML. Replace it with original, high-resolution artwork for future copy changes or sharper mobile crops.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Phone, email, address and business claims were transcribed from the supplied design and should be confirmed before production publication. IATA certification artwork is not reproduced as an independently verified accreditation.
 
-## Deploy on Vercel
+Main files: `app/page.tsx`, `app/globals.css`, `app/components/booking-form.tsx`, `app/components/header.tsx`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Backend integration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To accept requests directly, replace the form's summary/email handoff with a server endpoint that validates and persists requests, sends a notification, handles errors and applies spam protection. Do not display a successful booking message until the backend confirms acceptance.
